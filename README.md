@@ -17,14 +17,61 @@ To write a program to perform linear search and binary search using python progr
 5.	Else, compare x with the middle element of the elements on the left side of mid. This is done by setting high to high = mid - 1.
 6.	Repeat steps 2 to 5 until low meets high
 ## Program:
+```
+Developed by:keerthana jayasri s k
+Register Number:22006582
+```
 i)	#Use a linear search method to match the item in a list.
 ```
+
+def linearsearch(array, n, k):
+
+    for i in range(0, n):
+        if (array [i] == k):
+            return i
+    return -1
+
+array = eval(input())
+k =  eval(input())
+n = len(array)
+array.sort()
+result = linearsearch(array, n, k)
+if(result == -1):
+    print(array)
+    print("Element not found")
+else:
+    print(array)
+    print("Element found at index: ", result)
 
 
 
 ```
 ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
+
+
+def binarySearchIter(array, k, low, high):
+    while(low<=high):
+        mid=low+(high-low)//2
+        if array[mid]==k:
+            return mid
+        elif array[mid]<k:
+            low=mid+1
+        else:
+            high=mid+1
+    return -1
+array=eval(input())
+array.sort()
+print(array)
+k=eval(input()) 
+low=0
+high= len(array)-1
+result=binarySearchIter(array, k, low, high)
+if result>=0:
+    print("Element found at index: ",result)
+else:
+    print("Element not found")
+
 
 
 
@@ -36,14 +83,50 @@ iii)	# Find the element in a list using Binary Search (recursive Method).
 
 
 
+def BinarySearch(arr, k, low, high):
+    if high>=low:
+        mid=low+(high-low)//2
+        if arr[mid]==k:
+            return mid
+        elif arr[mid]<k:
+            return BinarySearch(arr,k,mid+1,high)
+        else:
+            return BinarySearch(arr,k,low,mid+1)
+    return -1
+arr = eval(input())
+#sort the array
+arr.sort()
+print(arr)
+# k is the element to be searched for
+k = eval(input()) 
+low=0
+high=len(arr)-1
+# use the binary search function to find the result
+result=BinarySearch(arr, k, low, high)
+# use if-else to print sorted array and "Element not found" if the item is not present in the list otherwise print sorted array and "Element found at index: ", result
+if result>=0:
+    print("Element found at index: ",result)
+else:
+    print("Element not found")
+
+
+
+
 
 
 ```
 ## Sample Input and Output
 
+#### i)
+![image](https://user-images.githubusercontent.com/121163440/215134442-b1d8f678-e125-4f4b-8763-1dd006aae2e5.png)
+
+#### ii)
+![image](https://user-images.githubusercontent.com/121163440/215134554-729b0f9c-ce2b-47ea-9225-b4fbd154f25a.png)
+
+#### iii)
 
 
-
+![image](https://user-images.githubusercontent.com/121163440/215134635-f5867a9a-ebbb-4bfc-a335-15b7de04fcc8.png)
 
 
 ## Result
